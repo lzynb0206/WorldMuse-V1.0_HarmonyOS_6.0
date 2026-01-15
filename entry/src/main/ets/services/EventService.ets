@@ -1,0 +1,64 @@
+/**
+ * 历史事件服务
+ */
+import { HistoricalEvent } from '../models/EventModel';
+
+export class EventService {
+  private static instance: EventService;
+  private events: HistoricalEvent[] = [];
+
+  private constructor() {
+    this.loadEvents();
+  }
+
+  public static getInstance(): EventService {
+    if (!EventService.instance) {
+      EventService.instance = new EventService();
+    }
+    return EventService.instance;
+  }
+
+  /**
+   * 加载事件数据
+   */
+  private loadEvents(): void {
+    this.events = [
+      { month: 1, day: 1, year: null, title: '元旦 - 故宫博物院开放日', desc: '故宫博物院于1925年正式对外开放，成为世界上最大的宫殿建筑群博物馆。', artifactId: 1 },
+      { month: 1, day: 15, year: null, title: '明代青花瓷制作工艺', desc: '明代青花瓷制作工艺达到巅峰，郑和下西洋带回的钴料使青花瓷色彩更加鲜艳。', artifactId: 16 },
+      { month: 2, day: 14, year: null, title: '情人节 - 古代玉器文化', desc: '中国古代玉器是爱情的象征，玉器制作工艺精湛，纹饰精美。', artifactId: 17 },
+      { month: 3, day: 8, year: null, title: '妇女节 - 维伦多夫的维纳斯', desc: '旧石器时代的小型女性雕像，是已知最早的人类艺术表现之一，展现了古代对女性美的追求。', artifactId: 7 },
+      { month: 3, day: 15, year: null, title: '消费者权益日 - 古代度量衡', desc: '秦始皇统一度量衡，建立了中国古代的度量衡制度，为商业发展奠定了基础。', artifactId: 3 },
+      { month: 4, day: 5, year: null, title: '清明节 - 清明上河图', desc: '北宋画家张择端创作的《清明上河图》，描绘了北宋都城汴京的繁华景象。', artifactId: 1 },
+      { month: 4, day: 18, year: null, title: '国际古迹遗址日', desc: '保护世界文化遗产，传承人类文明。', artifactId: 6 },
+      { month: 5, day: 1, year: null, title: '劳动节 - 古代青铜器制作', desc: '中国古代青铜器制作工艺精湛，反映了古代劳动人民的智慧和创造力。', artifactId: 3 },
+      { month: 5, day: 18, year: null, title: '国际博物馆日', desc: '博物馆是连接过去、现在和未来的桥梁，让我们共同探索人类文明的奥秘。', artifactId: 1 },
+      { month: 6, day: 1, year: null, title: '儿童节 - 亲子友好文物', desc: '博物馆是孩子们学习历史、了解文化的重要场所。', artifactId: 4 },
+      { month: 6, day: 12, year: null, title: '文化遗产日', desc: '保护文化遗产，传承中华文明。', artifactId: 2 },
+      { month: 7, day: 1, year: null, title: '建党节 - 革命历史文物', desc: '革命历史文物见证了中国人民的革命历程，是宝贵的历史财富。', artifactId: 24 },
+      { month: 7, day: 15, year: null, title: '古代书法艺术', desc: '中国古代书法是中华文明的重要标志，展现了汉字书法的艺术魅力。', artifactId: 18 },
+      { month: 8, day: 1, year: null, title: '建军节 - 古代兵器', desc: '古代兵器制作工艺精湛，反映了古代军事技术的发展。', artifactId: 3 },
+      { month: 8, day: 15, year: null, title: '中秋节 - 古代陶瓷', desc: '中秋节是中国的传统节日，古代陶瓷器是节日文化的重要组成部分。', artifactId: 5 },
+      { month: 9, day: 10, year: null, title: '教师节 - 古代教育文物', desc: '古代教育文物展现了中华文明的传承和发展。', artifactId: 1 },
+      { month: 10, day: 1, year: null, title: '国庆节 - 中国国家博物馆', desc: '中国国家博物馆是展示中华文明的重要窗口，收藏了大量珍贵文物。', artifactId: 22 },
+      { month: 10, day: 15, year: null, title: '古代绘画艺术', desc: '中国古代绘画艺术源远流长，是中华文明的重要组成部分。', artifactId: 2 },
+      { month: 11, day: 11, year: null, title: '双十一 - 古代商业文化', desc: '古代商业文化繁荣，促进了文化交流和经济发展。', artifactId: 1 },
+      { month: 12, day: 25, year: null, title: '圣诞节 - 西方艺术', desc: '西方艺术是多元文化的重要组成部分，展现了人类文明的多样性。', artifactId: 7 },
+      { month: 12, day: 31, year: null, title: '跨年夜 - 迎接新年', desc: '在新的一年里，让我们继续探索人类文明的奥秘，传承优秀文化。', artifactId: 1 }
+    ];
+  }
+
+  /**
+   * 获取指定日期的事件
+   */
+  public getEventsByDate(month: number, day: number): HistoricalEvent[] {
+    return this.events.filter(event => event.month === month && event.day === day);
+  }
+
+  /**
+   * 获取今天的事件
+   */
+  public getTodayEvents(): HistoricalEvent[] {
+    const today = new Date();
+    return this.getEventsByDate(today.getMonth() + 1, today.getDate());
+  }
+}

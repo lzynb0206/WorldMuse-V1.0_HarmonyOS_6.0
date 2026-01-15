@@ -1,0 +1,56 @@
+{
+  "app": {
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "6.0.1(21)",
+        "compatibleSdkVersion": "6.0.1(21)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "storeFile": "D:/Worldmuse/项目证书/worldmuse.p12",
+          "storePassword": "0000001E68DEBB04E19FA893B783A620F1A49BAC85762183582D385DC86D1925FBB2813E83D93BD9155FFA6A707E",
+          "keyAlias": "worldmuse",
+          "keyPassword": "0000001E8AC954896FADEB506CF75D195DE8702BD0D534FDE0D59E4EA364DB137D0D2BEEFBF0F1CFAD799EEC67C3",
+          "signAlg": "SHA256withECDSA",
+          "profile": "D:/Worldmuse/项目证书/worldmuseRelease (1).p7b",
+          "certpath": "D:/Worldmuse/项目证书/worldmuse (2).cer"
+        }
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
