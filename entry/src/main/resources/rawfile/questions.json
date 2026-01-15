@@ -1,0 +1,135 @@
+[
+  {
+    "id": 1,
+    "type": "single",
+    "category": "历史",
+    "question": "故宫始建于哪个朝代？",
+    "options": ["明朝", "清朝", "元朝", "宋朝"],
+    "correctAnswer": 0,
+    "explanation": "故宫始建于明永乐十八年（1420年），是明朝第三位皇帝朱棣（明成祖）下令建造的。",
+    "difficulty": "easy",
+    "theme": "博物馆"
+  },
+  {
+    "id": 2,
+    "type": "single",
+    "category": "藏品",
+    "question": "《清明上河图》是哪个朝代的作品？",
+    "options": ["唐朝", "宋朝", "元朝", "明朝"],
+    "correctAnswer": 1,
+    "explanation": "《清明上河图》是北宋画家张择端所作，描绘了北宋都城汴京的城市面貌。",
+    "difficulty": "medium",
+    "theme": "藏品"
+  },
+  {
+    "id": 3,
+    "type": "multiple",
+    "category": "建筑",
+    "question": "故宫的三大殿包括哪些？（多选）",
+    "options": ["太和殿", "中和殿", "保和殿", "乾清宫"],
+    "correctAnswer": [0, 1, 2],
+    "explanation": "故宫的三大殿是指太和殿、中和殿、保和殿，这三座大殿位于故宫的中轴线上。",
+    "difficulty": "easy",
+    "theme": "博物馆"
+  },
+  {
+    "id": 4,
+    "type": "judge",
+    "category": "历史",
+    "question": "兵马俑是秦始皇陵的陪葬品。",
+    "options": ["正确", "错误"],
+    "correctAnswer": 0,
+    "explanation": "正确。兵马俑是秦始皇陵的陪葬坑中的陶俑，规模宏大，造型逼真。",
+    "difficulty": "easy",
+    "theme": "历史"
+  },
+  {
+    "id": 5,
+    "type": "single",
+    "category": "艺术",
+    "question": "《蒙娜丽莎》的作者是谁？",
+    "options": ["达·芬奇", "米开朗基罗", "拉斐尔", "梵高"],
+    "correctAnswer": 0,
+    "explanation": "《蒙娜丽莎》是意大利文艺复兴时期画家列奥纳多·达·芬奇创作的油画。",
+    "difficulty": "medium",
+    "theme": "艺术"
+  },
+  {
+    "id": 6,
+    "type": "single",
+    "category": "历史",
+    "question": "罗塞塔石碑刻有几种文字？",
+    "options": ["一种", "两种", "三种", "四种"],
+    "correctAnswer": 2,
+    "explanation": "罗塞塔石碑上刻有三种文字：古埃及象形文字、古埃及草书和古希腊文。",
+    "difficulty": "medium",
+    "theme": "历史"
+  },
+  {
+    "id": 7,
+    "type": "multiple",
+    "category": "艺术",
+    "question": "以下哪些是印象派画家？（多选）",
+    "options": ["莫奈", "梵高", "达·芬奇", "雷诺阿"],
+    "correctAnswer": [0, 1, 3],
+    "explanation": "莫奈、梵高、雷诺阿都是印象派或后印象派画家，达·芬奇是文艺复兴时期的画家。",
+    "difficulty": "hard",
+    "theme": "艺术"
+  },
+  {
+    "id": 8,
+    "type": "judge",
+    "category": "历史",
+    "question": "图坦卡蒙黄金面具重达11公斤。",
+    "options": ["正确", "错误"],
+    "correctAnswer": 0,
+    "explanation": "正确。图坦卡蒙黄金面具由纯金制成，重达11公斤，是古埃及艺术的代表作。",
+    "difficulty": "medium",
+    "theme": "历史"
+  },
+  {
+    "id": 9,
+    "type": "single",
+    "category": "艺术",
+    "question": "《星夜》是哪位画家的作品？",
+    "options": ["梵高", "莫奈", "毕加索", "达利"],
+    "correctAnswer": 0,
+    "explanation": "《星夜》是荷兰后印象派画家文森特·梵高创作的油画，创作于1889年。",
+    "difficulty": "easy",
+    "theme": "艺术"
+  },
+  {
+    "id": 10,
+    "type": "single",
+    "category": "历史",
+    "question": "维伦多夫的维纳斯制作于什么时代？",
+    "options": ["新石器时代", "旧石器时代", "青铜时代", "铁器时代"],
+    "correctAnswer": 1,
+    "explanation": "维伦多夫的维纳斯制作于旧石器时代，约2.5万年前，是已知最早的人类艺术表现之一。",
+    "difficulty": "hard",
+    "theme": "历史"
+  },
+  {
+    "id": 11,
+    "type": "multiple",
+    "category": "藏品",
+    "question": "以下哪些是中国的文物？（多选）",
+    "options": ["清明上河图", "兵马俑", "蒙娜丽莎", "富春山居图"],
+    "correctAnswer": [0, 1, 3],
+    "explanation": "《清明上河图》、兵马俑、《富春山居图》都是中国的文物，《蒙娜丽莎》是意大利的作品。",
+    "difficulty": "easy",
+    "theme": "藏品"
+  },
+  {
+    "id": 12,
+    "type": "judge",
+    "category": "艺术",
+    "question": "《大卫像》是米开朗基罗创作的雕塑作品。",
+    "options": ["正确", "错误"],
+    "correctAnswer": 0,
+    "explanation": "正确。《大卫像》是意大利文艺复兴时期雕塑家米开朗基罗创作的大理石雕塑。",
+    "difficulty": "medium",
+    "theme": "艺术"
+  }
+]
+

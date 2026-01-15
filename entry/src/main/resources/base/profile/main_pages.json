@@ -1,0 +1,27 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/OnboardingPage",
+    "pages/SettingsPage",
+    "pages/MuseumList",
+    "pages/MuseumDetail",
+    "pages/ArtifactExplore",
+    "pages/ArtifactDetail",
+    "pages/News",
+    "pages/NewsDetail",
+    "pages/Timeline",
+    "pages/Quiz",
+    "pages/Achievements",
+    "pages/InterestSelectPage",
+    "pages/RecommendPage",
+    "pages/MyItineraryPage",
+    "pages/TreasureHuntPage",
+    "pages/SelectMuseumsPage",
+    "pages/SelectInterestsPage",
+    "pages/RecommendListPage",
+    "pages/ToolsPage",
+    "pages/CalendarToolPage",
+    "pages/UnitConverterToolPage",
+    "pages/ColorPickerToolPage"
+  ]
+}
