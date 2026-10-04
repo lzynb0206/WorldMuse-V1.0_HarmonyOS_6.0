@@ -1,12 +1,51 @@
-/node_modules
-/oh_modules
+# Dependencies
+/node_modules/
+/oh_modules/
+**/node_modules/
+**/oh_modules/
+
+# HarmonyOS / DevEco Studio build outputs
+**/build/
+/.hvigor/
+/.appanalyzer/
+**/.preview/
+**/.test/
+/.cxx/
+/.clangd/
+/.clang-format/
+/.clang-tidy/
+
+# IDE and operating-system files
+/.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local machine configuration
 /local.properties
-/.idea
-**/build
-/.hvigor
-.cxx
-/.clangd
-/.clang-format
-/.clang-tidy
-**/.test
-/.appanalyzer
+**/local.properties
+.env
+.env.*
+!.env.example
+
+# Signing certificates, profiles and private keys
+/项目证书/
+**/项目证书/
+/material/
+**/material/
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.cer
+*.crt
+*.csr
+*.p7b
+*.pem
+*.key
+*.mobileprovision
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
