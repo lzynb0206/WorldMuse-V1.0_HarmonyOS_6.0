@@ -1,5 +1,12 @@
 <div align="center">
-  <img src="docs/assets/worldmuse-project-card.png" alt="云览天下 WorldMuse 项目封面" width="100%" />
+  <a href="README.md"><img src="https://img.shields.io/badge/English-Current-0f766e?style=for-the-badge" alt="English" /></a>
+  <a href="README_CN.md"><img src="https://img.shields.io/badge/简体中文-切换-b7793f?style=for-the-badge" alt="简体中文" /></a>
+</div>
+
+<br />
+
+<div align="center">
+  <img src="docs/assets/worldmuse-project-card-en.png" alt="WorldMuse project cover" width="100%" />
 </div>
 
 <div align="center">
@@ -10,99 +17,237 @@
   <img src="https://img.shields.io/badge/License-MIT-334155?style=for-the-badge" alt="MIT License" />
 </div>
 
-<h1 align="center">云览天下 · WorldMuse</h1>
+<h1 align="center">WorldMuse · 云览天下</h1>
 
 <p align="center">
-  面向 HarmonyOS 的博物馆云端漫游平台<br />
-  探索全球博物馆、走近珍贵藏品，在时间与文化之间开启一场随身旅程。
+  A native HarmonyOS museum discovery and cultural-learning experience.<br />
+  Explore museums around the world, discover remarkable collections, and turn curiosity into a personal cultural journey.
 </p>
 
-## 项目简介
+## Overview
 
-**云览天下**是一款使用 ArkTS 与 ArkUI 开发的 HarmonyOS 原生应用。项目以博物馆与文化遗产为主线，将博物馆浏览、藏品探索、个性化推荐、参观路线规划和互动学习整合在同一套移动体验中。
+**WorldMuse** is an open-source HarmonyOS application built with ArkTS and ArkUI. It brings museum discovery, collection exploration, personalized recommendations, itinerary planning, cultural news, historical learning, and lightweight interactive tools into one mobile experience.
 
-项目已发布至鸿蒙应用市场，并入选 **2025 HarmonyOS Developer Incentive Program**。当前版本面向 HarmonyOS 6.0 及以上设备。
+The project is designed around a simple idea: access to culture should not be limited by distance. Instead of presenting museum data as a static catalog, WorldMuse connects places, objects, stories, timelines, quizzes, achievements, and personal interests into a continuous exploration flow.
 
-## 核心亮点
+The application has been published on the HarmonyOS App Market and was selected for the **2025 HarmonyOS Developer Incentive Program**.
 
-| 模块 | 能力 |
+## At a Glance
+
+| Item | Details |
 | --- | --- |
-| 全球博物馆 | 按地区与类别浏览精选博物馆，查看馆藏与基本信息 |
-| 藏品探索 | 搜索、筛选并查看藏品详情与文化背景 |
-| 个性化推荐 | 根据用户选择的兴趣标签计算匹配度并推荐藏品 |
-| 行程规划 | 将藏品加入参观路线，支持拖拽排序、删除与预计用时 |
-| 文化资讯 | 集中浏览博物馆动态与文化资讯 |
-| 历史学习 | 通过历史时间线、知识问答与寻宝游戏进行互动学习 |
-| 成就系统 | 记录探索进度，让学习过程更具反馈感 |
-| 实用工具 | 提供历史日历、单位换算与取色器等辅助功能 |
+| Product | Museum discovery and cultural-learning application |
+| Platform | HarmonyOS 6.0+ |
+| Current version | 1.0.0 |
+| Language and UI | ArkTS · ArkUI |
+| Target device | Phone |
+| Data model | Local museum, artifact, event, game, and recommendation services |
+| Storage | AppStorage and HarmonyOS Preferences |
+| Build system | DevEco Studio · Hvigor |
+| License | MIT |
 
-## 技术栈
+## Product Experience
 
-- **操作系统：** HarmonyOS 6.0+
-- **开发语言：** ArkTS
-- **界面框架：** ArkUI
-- **工程工具：** DevEco Studio、Hvigor
-- **数据方式：** 本地数据与资源驱动，核心功能可离线使用
-- **设备类型：** Phone
+WorldMuse is organized into four connected experiences:
 
-## 项目结构
+1. **Discover** museums and artifacts through curated lists, regional filters, details, and cultural news.
+2. **Personalize** the experience by selecting interests and receiving tag-based artifact recommendations.
+3. **Plan** a museum journey by collecting recommendations into a reorderable itinerary with estimated visit time.
+4. **Learn and interact** through historical timelines, quizzes, treasure hunts, achievements, and practical cultural tools.
+
+## Features
+
+### Museum Discovery
+
+- Browse a curated collection of museums from different regions of the world.
+- Open detailed museum pages with introductions, highlights, and associated collections.
+- Filter and navigate content by region, category, and museum.
+- Explore cultural news and open full news stories inside the application.
+
+### Artifact Exploration
+
+- Search and browse artifacts from the local collection dataset.
+- View artifact descriptions, museum attribution, tags, and recommended viewing duration.
+- Move naturally between museums, artifacts, recommendations, and personal routes.
+- Save exploration progress through local HarmonyOS preferences where supported.
+
+### Personalized Recommendations
+
+- Select interests across culture, geography, history, and artifact categories.
+- Match selected interests against artifact tags through `RecommendService`.
+- Combine museum-specific results with popular artifacts for a broader recommendation list.
+- Refresh interests at any time and generate a new selection.
+
+### Personal Itinerary
+
+- Add recommended artifacts to a personal museum itinerary.
+- Group selected artifacts by museum.
+- Reorder itinerary items with drag interactions.
+- Remove items and review estimated visit time.
+- Keep itinerary state locally through `AppStorage`.
+
+### Learning and Interaction
+
+- Follow major periods and events through a historical timeline.
+- Test cultural knowledge with quiz content.
+- Explore a lightweight treasure-hunt experience.
+- Track progress through an achievements page.
+- Use calendar, unit-conversion, and color-picker tools.
+
+## Recommendation Flow
+
+```mermaid
+flowchart LR
+    A[Select interests] --> B[Store interest tags]
+    C[Local museum and artifact data] --> D[RecommendService]
+    B --> D
+    D --> E[Rank by tag relevance]
+    E --> F[Recommended artifacts]
+    F --> G[Personal itinerary]
+    G --> H[Reorder and estimate visit time]
+```
+
+The current recommendation system is intentionally transparent and local. It calculates relevance from the overlap between the user's selected tags and the tags attached to each artifact, then supplements the result with popular items when needed. This makes the feature predictable, fast, and usable without depending on a remote recommendation API.
+
+## Technology
+
+| Layer | Technology |
+| --- | --- |
+| Operating system | HarmonyOS 6.0.1 / API 21 |
+| Language | ArkTS |
+| UI | ArkUI declarative components |
+| Navigation | HarmonyOS Router |
+| State | Component state, AppStorage, StorageLink |
+| Persistence | HarmonyOS Preferences |
+| Models | Museum, Artifact, Event, and Game models |
+| Services | Museum, Artifact, Event, Game, and Recommendation services |
+| Tooling | DevEco Studio, Hvigor |
+| Testing dependencies | Hypium, Hamock |
+
+## Project Structure
 
 ```text
 Worldmuse_HarmonyOS/
-├── AppScope/                    # 应用级配置与图标资源
+├── AppScope/
+│   ├── app.json5                       # App identity and version
+│   └── resources/                      # App-level icons and resources
 ├── entry/
 │   └── src/main/
 │       ├── ets/
-│       │   ├── pages/           # 页面与业务交互
-│       │   ├── models/          # 数据模型
-│       │   ├── services/        # 数据与业务服务
-│       │   └── utils/           # 通用工具
-│       └── resources/           # 图片、字符串与本地资源
-├── build-profile.json5          # 工程构建配置（不包含签名凭据）
+│       │   ├── entryability/           # Main HarmonyOS ability
+│       │   ├── entrybackupability/     # Backup extension ability
+│       │   ├── models/                 # Domain models
+│       │   ├── pages/                  # Screens and interactions
+│       │   ├── services/               # Local data and recommendation services
+│       │   └── utils/                  # Shared utilities
+│       └── resources/                  # Strings, media, profiles, and themes
+├── docs/assets/                        # README covers and extracted app logo
+├── scripts/                            # README asset generator
+├── build-profile.json5                 # Build configuration without credentials
 ├── hvigorfile.ts
 └── oh-package.json5
 ```
 
-## 快速开始
+## Main Screens
 
-### 环境要求
+| Area | Source page |
+| --- | --- |
+| Home and discovery | `Index.ets` |
+| Museum list and details | `MuseumList.ets`, `MuseumDetail.ets` |
+| Artifact browsing and details | `ArtifactExplore.ets`, `ArtifactDetail.ets` |
+| Interest selection and recommendations | `InterestSelectPage.ets`, `RecommendPage.ets` |
+| Personal itinerary | `MyItineraryPage.ets` |
+| News and cultural stories | `News.ets`, `NewsDetail.ets` |
+| Timeline, quiz, and treasure hunt | `Timeline.ets`, `Quiz.ets`, `TreasureHuntPage.ets` |
+| Achievements and utilities | `Achievements.ets`, `ToolsPage.ets` |
 
-- DevEco Studio（支持 HarmonyOS 6.0.1 / API 21）
+## Getting Started
+
+### Requirements
+
+- DevEco Studio with HarmonyOS 6.0.1 support
 - HarmonyOS SDK 6.0.1(21)
-- HarmonyOS 模拟器或真机
+- A HarmonyOS emulator or phone
+- Git
 
-### 运行项目
+### Clone
 
 ```bash
 git clone https://github.com/lzynb0206/WorldMuse-V1.0_HarmonyOS_6.0.git
 cd WorldMuse-V1.0_HarmonyOS_6.0
 ```
 
-1. 使用 DevEco Studio 打开项目目录。
-2. 等待 Hvigor 同步并完成依赖安装。
-3. 选择 HarmonyOS 模拟器或真机。
-4. 运行 `entry` 模块。
+### Run
 
-> 仓库不包含开发者证书、私钥、签名 Profile 或本机路径。若需要真机调试或发布构建，请在 DevEco Studio 中配置你自己的签名信息。
+1. Open the project directory in DevEco Studio.
+2. Allow Hvigor to synchronize the project and install dependencies.
+3. Select the `entry` module.
+4. Choose a HarmonyOS emulator or connected device.
+5. Run the application.
 
-## 推荐与路线规划
+### Signing
 
-应用允许用户先选择感兴趣的文化、地域与藏品标签，再依据标签重合度生成个性化推荐。感兴趣的藏品可以加入参观路线，并进行拖拽排序、删除和预计时长管理；路线数据使用本地状态保存，便于离线使用。
+This repository intentionally excludes developer certificates, private keys, signing profiles, passwords, and machine-specific paths. To run on a physical device or create a release build, configure your own signing identity in DevEco Studio.
 
-## 隐私与安全
+Do not commit any generated signing files or local signing configuration.
 
-- 项目不会提交证书、私钥、签名 Profile、密码或本机配置。
-- 请勿将 `项目证书/`、`material/`、`local.properties` 或任何密钥文件加入版本控制。
-- 若历史提交中曾包含真实凭据，请立即在对应平台吊销并重新签发；仅从最新代码中删除并不能清除 Git 历史。
+## Local Data and Offline Use
 
-## 贡献
+Museum, artifact, event, quiz, and game content is primarily provided by local models, services, and packaged media resources. Core browsing, recommendation, itinerary, and learning flows can therefore operate without a dedicated backend. The module still declares Internet permission for experiences that may load network content.
 
-欢迎通过 Issue 提交建议或问题，也欢迎 Fork 项目并发起 Pull Request。提交代码前，请确保未包含本机路径、构建产物或任何签名材料。
+## README Visuals
 
-## 许可证
+The project covers use the original high-resolution application icon from `AppScope/resources/base/media/startIcon.png`. Both language variants can be regenerated on macOS with:
 
-本项目采用 MIT License 开源。
+```bash
+SWIFT_MODULECACHE_PATH=/private/tmp/worldmuse-swift-cache \
+CLANG_MODULE_CACHE_PATH=/private/tmp/worldmuse-clang-cache \
+swift scripts/generate_readme_assets.swift
+```
+
+Generated assets:
+
+- `docs/assets/worldmuse-project-card-en.png`
+- `docs/assets/worldmuse-project-card-zh.png`
+- `docs/assets/worldmuse-logo.png`
+
+## Security
+
+- Signing certificates, keys, profiles, passwords, local properties, and generated signing material are ignored by Git.
+- Never commit `项目证书/`, `material/`, `local.properties`, or private key files.
+- If a real credential is accidentally committed, revoke or rotate it immediately before rewriting Git history.
+- A force-push removes the content from reachable history, but existing forks, clones, or caches may still retain copies.
+
+## Roadmap
+
+- [ ] Expand museum and artifact datasets.
+- [ ] Add in-app Chinese and English localization.
+- [ ] Improve accessibility and large-font support.
+- [ ] Add optional cloud synchronization for interests and itineraries.
+- [ ] Expand automated tests for services and interaction flows.
+- [ ] Continue improving tablet and multi-device layouts.
+
+## Contributing
+
+Issues, feature suggestions, and pull requests are welcome.
+
+1. Fork the repository.
+2. Create a focused feature branch.
+3. Keep changes small and document important behavior.
+4. Confirm that no credentials, machine paths, or build products are included.
+5. Open a pull request describing the problem and the proposed solution.
+
+## License
+
+WorldMuse is released under the MIT License.
+
+## Acknowledgements
+
+WorldMuse was selected for the **2025 HarmonyOS Developer Incentive Program**. The project is dedicated to museums, researchers, educators, creators, and everyone working to make cultural knowledge easier to discover.
 
 ---
 
-<p align="center">让博物馆不再受距离限制，让文化探索随时发生。</p>
+<p align="center">
+  Museums without distance. Culture within reach.<br />
+  <a href="README_CN.md">阅读简体中文版</a>
+</p>
