@@ -46,6 +46,26 @@
 | 构建工具 | DevEco Studio · Hvigor |
 | 开源协议 | MIT |
 
+## 软件著作权
+
+<div align="center">
+  <img src="docs/assets/worldmuse-copyright-zh.png" alt="云览天下软件著作权登记信息" width="100%" />
+</div>
+
+云览天下已取得中国**计算机软件著作权登记证书**，登记作品覆盖博物馆云端漫游平台 V1.0 原始版本。
+
+| 登记项目 | 信息 |
+| --- | --- |
+| 软件名称 | 云览天下-博物馆云端漫游平台 |
+| 软件版本 | V1.0 |
+| 著作权人 | 已登记个人著作权人 |
+| 权利取得与范围 | 原始取得 · 全部权利 |
+| 登记号 | `2025SR237****` |
+| 登记日期 | 2025年12月9日 |
+| 登记机构 | 中国版权保护中心 |
+
+> 这是用于项目展示的脱敏认证卡，并不能替代官方证书。著作权人姓名、完整登记号、证书扫描件、证书号、条形码、二维码及印章图像均不会存入公开仓库。
+
 ## 产品体验
 
 云览天下把主要体验组织为四条彼此衔接的路径：
@@ -209,6 +229,8 @@ swift scripts/generate_readme_assets.swift
 
 - `docs/assets/worldmuse-project-card-en.png`
 - `docs/assets/worldmuse-project-card-zh.png`
+- `docs/assets/worldmuse-copyright-en.png`
+- `docs/assets/worldmuse-copyright-zh.png`
 - `docs/assets/worldmuse-logo.png`
 
 ## 安全说明

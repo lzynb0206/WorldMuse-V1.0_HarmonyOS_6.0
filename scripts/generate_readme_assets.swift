@@ -257,4 +257,125 @@ savePNG(english, name: "worldmuse-project-card-en.png")
 savePNG(chinese, name: "worldmuse-project-card-zh.png")
 savePNG(english, name: "worldmuse-project-card.png")
 
-print("Generated English and Chinese README assets in docs/assets")
+struct CopyrightCopy {
+    let title: String
+    let subtitle: String
+    let softwareLabel: String
+    let holderLabel: String
+    let holderValue: String
+    let registrationLabel: String
+    let dateLabel: String
+    let rightsLabel: String
+    let rightsValue: String
+    let authority: String
+    let privacyNote: String
+    let emblemText: String
+}
+
+func copyrightField(_ label: String, value: String, y: CGFloat, canvasHeight: CGFloat) {
+    text(label, x: 380, y: y + 1, width: 210, height: 32, size: 16,
+         weight: .semibold, foreground: color(0xd9aa63), canvasHeight: canvasHeight)
+    text(value, x: 600, y: y - 2, width: 590, height: 38, size: 22,
+         weight: .semibold, foreground: color(0xf3f8f7), canvasHeight: canvasHeight)
+}
+
+func makeCopyrightCard(_ copy: CopyrightCopy) -> NSBitmapImageRep {
+    let width: CGFloat = 1280
+    let height: CGFloat = 520
+    return bitmap(width: Int(width), height: Int(height)) {
+        drawBackground(width: width, height: height)
+
+        let outerBorder = NSBezierPath(roundedRect: topRect(24, 24, 1232, 472, canvas: height),
+                                       xRadius: 28, yRadius: 28)
+        color(0xc99a54, alpha: 0.82).setStroke()
+        outerBorder.lineWidth = 2
+        outerBorder.stroke()
+        let innerBorder = NSBezierPath(roundedRect: topRect(34, 34, 1212, 452, canvas: height),
+                                       xRadius: 22, yRadius: 22)
+        color(0xc99a54, alpha: 0.25).setStroke()
+        innerBorder.lineWidth = 1
+        innerBorder.stroke()
+
+        let iconCard = topRect(72, 92, 248, 248, canvas: height)
+        color(0xffffff).setFill()
+        NSBezierPath(roundedRect: iconCard, xRadius: 42, yRadius: 42).fill()
+        NSGraphicsContext.saveGraphicsState()
+        NSBezierPath(roundedRect: iconCard, xRadius: 42, yRadius: 42).addClip()
+        appIcon.draw(
+            in: iconCard.insetBy(dx: 18, dy: 18),
+            from: .zero,
+            operation: .sourceOver,
+            fraction: 1,
+            respectFlipped: true,
+            hints: [.interpolation: NSImageInterpolation.high]
+        )
+        NSGraphicsContext.restoreGraphicsState()
+
+        let mark = topRect(252, 294, 82, 82, canvas: height)
+        color(0xb7793f).setFill()
+        NSBezierPath(ovalIn: mark).fill()
+        text("©", x: 252, y: 303, width: 82, height: 62, size: 44,
+             weight: .semibold, foreground: color(0xffffff), canvasHeight: height,
+             alignment: .center)
+        text(copy.emblemText, x: 66, y: 382, width: 270, height: 40, size: 17,
+             weight: .semibold, foreground: color(0x9dd8d1), canvasHeight: height,
+             alignment: .center)
+
+        text(copy.title, x: 380, y: 54, width: 810, height: 62, size: 42,
+             weight: .bold, foreground: color(0xf7fbfa), canvasHeight: height)
+        text(copy.subtitle, x: 382, y: 112, width: 800, height: 42, size: 22,
+             weight: .semibold, foreground: color(0x9dd8d1), canvasHeight: height)
+
+        color(0xc99a54, alpha: 0.55).setFill()
+        NSBezierPath(roundedRect: topRect(380, 160, 810, 2, canvas: height),
+                     xRadius: 1, yRadius: 1).fill()
+
+        copyrightField(copy.softwareLabel, value: "云览天下-博物馆云端漫游平台 V1.0",
+                       y: 184, canvasHeight: height)
+        copyrightField(copy.holderLabel, value: copy.holderValue, y: 232, canvasHeight: height)
+        copyrightField(copy.registrationLabel, value: "2025SR237****",
+                       y: 280, canvasHeight: height)
+        copyrightField(copy.dateLabel, value: "2025-12-09", y: 328, canvasHeight: height)
+        copyrightField(copy.rightsLabel, value: copy.rightsValue, y: 376, canvasHeight: height)
+
+        text(copy.authority, x: 380, y: 432, width: 810, height: 28, size: 17,
+             weight: .semibold, foreground: color(0xe8c08f), canvasHeight: height)
+        text(copy.privacyNote, x: 380, y: 462, width: 810, height: 24, size: 14,
+             foreground: color(0xaec5c3), canvasHeight: height)
+    }
+}
+
+let copyrightEnglish = makeCopyrightCard(CopyrightCopy(
+    title: "Registered Software Copyright",
+    subtitle: "WorldMuse · 云览天下",
+    softwareLabel: "REGISTERED SOFTWARE",
+    holderLabel: "COPYRIGHT HOLDER",
+    holderValue: "Registered individual",
+    registrationLabel: "REGISTRATION NO.",
+    dateLabel: "REGISTERED ON",
+    rightsLabel: "RIGHTS",
+    rightsValue: "Original acquisition · All rights",
+    authority: "Registration authority · China Copyright Protection Center",
+    privacyNote: "Public verification card · Certificate serial, barcode and QR code intentionally omitted",
+    emblemText: "SOFTWARE COPYRIGHT"
+))
+
+let copyrightChinese = makeCopyrightCard(CopyrightCopy(
+    title: "计算机软件著作权登记",
+    subtitle: "云览天下 · WorldMuse",
+    softwareLabel: "登记软件",
+    holderLabel: "著作权人",
+    holderValue: "已登记个人著作权人",
+    registrationLabel: "登记号",
+    dateLabel: "登记日期",
+    rightsLabel: "权利信息",
+    rightsValue: "原始取得 · 全部权利",
+    authority: "登记机构 · 中国版权保护中心",
+    privacyNote: "公开展示卡 · 证书号、条形码和二维码已主动省略",
+    emblemText: "软件著作权"
+))
+
+savePNG(copyrightEnglish, name: "worldmuse-copyright-en.png")
+savePNG(copyrightChinese, name: "worldmuse-copyright-zh.png")
+
+print("Generated bilingual README and copyright assets in docs/assets")

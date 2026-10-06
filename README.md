@@ -46,6 +46,26 @@ The application has been published on the HarmonyOS App Market and was selected 
 | Build system | DevEco Studio · Hvigor |
 | License | MIT |
 
+## Intellectual Property
+
+<div align="center">
+  <img src="docs/assets/worldmuse-copyright-en.png" alt="WorldMuse software copyright registration" width="100%" />
+</div>
+
+WorldMuse has obtained a **Computer Software Copyright Registration Certificate** in China. The registered work covers the original V1.0 release of the museum cloud-roaming platform.
+
+| Registration item | Details |
+| --- | --- |
+| Registered software | 云览天下-博物馆云端漫游平台 |
+| Version | V1.0 |
+| Copyright holder | Registered individual copyright holder |
+| Acquisition and scope | Original acquisition · All rights |
+| Registration No. | `2025SR237****` |
+| Registration date | December 9, 2025 |
+| Registration authority | China Copyright Protection Center |
+
+> This is a privacy-safe project credential card, not a replacement for the official certificate. The copyright holder's name, complete registration number, certificate scan, certificate serial number, barcode, QR code, and official seal image are not stored in the public repository.
+
 ## Product Experience
 
 WorldMuse is organized into four connected experiences:
@@ -209,6 +229,8 @@ Generated assets:
 
 - `docs/assets/worldmuse-project-card-en.png`
 - `docs/assets/worldmuse-project-card-zh.png`
+- `docs/assets/worldmuse-copyright-en.png`
+- `docs/assets/worldmuse-copyright-zh.png`
 - `docs/assets/worldmuse-logo.png`
 
 ## Security
